@@ -1,7 +1,7 @@
 import React, { Fragment } from "react";
 import './avatar.css'
 
-const Avatar = ({ name="", imageUrl }) => {
+const Avatar = ({ name="", imageUrl,available=false }) => {
   console.log(imageUrl)
   return (
     <Fragment>
@@ -12,7 +12,7 @@ const Avatar = ({ name="", imageUrl }) => {
         {imageUrl === undefined && name !== "" && (
           <div className='avatatext'>{name.substring(0, 2)}</div>
         )}
-        <div className='online-status'></div>
+        <div className={`online-status ${available && 'online-status-green' }`}></div>
       </div>
     </Fragment>
   );

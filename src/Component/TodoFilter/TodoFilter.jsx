@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import "./todofilter.css";
+import React from "react";
 import DownArrowIcon from "../../Shared/Icon/DownArrowIcon";
 import FilterIcon from "../../Shared/Icon/FilterIcon";
 
-const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption }) => {
-  const [isDropDownSelected, setIsDropDownSelected] = useState(false);
+const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption, isDropDownSelected,setIsDropDownSelected }) => {
+  
 
   const handleDisplayChange = (e) => {
     setDisplayOption(e.target.value);
@@ -39,6 +38,7 @@ const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption
             width: "100%",
             top: "40px",
             background: "#F8F9FB",
+            zIndex:99
           }}
         >
           <div

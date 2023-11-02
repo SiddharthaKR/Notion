@@ -9,6 +9,8 @@ const Home = () => {
   const [displayOption, setDisplayOption] = useState("status");
   const [sortOption, setSortOption] = useState("title");
   const [groupedTickets, setGroupedTickets] = useState([]);
+  const [isDropDownSelected, setIsDropDownSelected] = useState(false);
+  
   useEffect(() => {
     // Fetch tickets from the API when the component mounts.
     ApiService.fetchData()
@@ -52,13 +54,16 @@ const Home = () => {
         groupedTickets[key].sort((a, b) => a.title.localeCompare(b.title));
       }
     }
-    console.log(groupedTickets);
     setGroupedTickets(groupedTickets);
   };
 
   const findUserName = (userId) => {
     const user = users.find((user) => user.id === userId);
     return user ? user.name : "Unknown User";
+  };
+
+  const handleOutsideClick = () => {
+    if (isDropDownSelected) setIsDropDownSelected(false);
   };
 
   return (
@@ -69,22 +74,18 @@ const Home = () => {
           sortOption={sortOption}
           setDisplayOption={setDisplayOption}
           setSortOption={setSortOption}
+          setIsDropDownSelected={setIsDropDownSelected}
+          isDropDownSelected={isDropDownSelected}
         />
       </div>
-      <div
-        style={{
-          display: "grid",
-          gridTemplateColumns: "repeat(4, 1fr)",
-          padding: "2rem",
-          gridColumnGap: "1rem",
-        }}
-      >
+      <div onClick={handleOutsideClick} className="gridContainer">
         {Object.entries(groupedTickets).map(([groupKey, groupTickets]) => (
           <TodoList
             key={groupKey}
             displayOption={displayOption}
             groupName={groupKey}
             tickets={groupTickets}
+            users={users}
           />
         ))}
       </div>

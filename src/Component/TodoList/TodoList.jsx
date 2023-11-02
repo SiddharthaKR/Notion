@@ -1,5 +1,4 @@
 import React from 'react'
-import './todolist.css'
 import TodoCard from '../TodoCard/TodoCard'
 import AdditionIcon from '../../Shared/Icon/AdditionIcon'
 import LoadMoreIcon from '../../Shared/Icon/LoadMoreIcon'
@@ -13,11 +12,13 @@ import InProgressIcon from '../../Shared/Icon/InProgressIcon'
 import DoneIcon from '../../Shared/Icon/DoneIcon'
 import DotIcon from '../../Shared/Icon/DotIcon'
 
-const TodoList = ({groupName='',tickets=[],displayOption}) => {
+const TodoList = ({groupName='',tickets=[],displayOption,users=[]}) => {
   const numberOfTickets = tickets.length;
+  const mapping = ['No priority','Low','Medium','High','Urgent']
+  const user = users.find((user) => user.name === groupName);
   const getIcon = () => {
     if(displayOption==='user'){
-      return <Avatar name={groupName}/>
+      return <Avatar name={groupName} available={user?.available}/>
     }else{
       switch(groupName){
         case '0':
@@ -49,7 +50,7 @@ const TodoList = ({groupName='',tickets=[],displayOption}) => {
         <div className='flex-row space-between' style={{marginBottom:"2rem"}}>
           <div className='flex-row item-gap centre'>
           {getIcon()}
-           <h4 className='text-primary'>{groupName}</h4>
+           <h4 className='text-primary'>{displayOption==='priority'?mapping[parseInt(groupName)]:groupName}</h4>
            <h4 className='text-primary'>{numberOfTickets}</h4>
           </div>
           <div className='flex-row item-gap' style={{alignItems:'center'}}>
