@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import TodoFilter from "../../Component/TodoFilter/TodoFilter";
 import TodoList from "../../Component/TodoList/TodoList";
-import ApiService from "../../Services/ApiService";
+import ApiService from "../../Services/ApiUtil";
 
-const Home = () => {
+const Todo = () => {
   const [tickets, setTickets] = useState([]);
   const [users, setUsers] = useState([]);
   const [displayOption, setDisplayOption] = useState("status");
@@ -95,7 +95,7 @@ const Home = () => {
           isDropDownSelected={isDropDownSelected}
         />
       </div>
-      <div onClick={handleOutsideClick} className="gridContainer">
+      <div onClick={handleOutsideClick} className="myAppName-gridContainer">
         {displayOption === "priority"
           ? [...Object.keys(groupedTickets)]
               .reverse()
@@ -122,4 +122,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default Todo;

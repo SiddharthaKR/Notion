@@ -28,7 +28,7 @@ const TodoFilter = ({
   return (
     <div style={{ position: "relative" }}>
       <div
-        className="outline-button cursor-pointer"
+        className="myAppName-outline-button myAppName-cursor-pointer"
         style={{ display: "flex", columnGap: "5px" }}
         onClick={handleDropDown}
       >
@@ -38,7 +38,7 @@ const TodoFilter = ({
       </div>
       {isDropDownSelected && (
         <div
-          className="outline-button flex-col"
+          className="myAppName-outline-button flex-col"
           style={{
             padding: "12px 22px",
             position: "absolute",
@@ -57,13 +57,13 @@ const TodoFilter = ({
               justifyContent: "space-between",
             }}
           >
-            <label htmlFor="group" className="text-gray">
+            <label htmlFor="group" className="myAppName-text-gray">
               Grouping
             </label>
             <select
               value={displayOption}
               onChange={handleDisplayChange}
-              className="select-button"
+              className="myAppName-select-button"
               name="group"
               id="group"
             >
@@ -80,13 +80,13 @@ const TodoFilter = ({
               marginTop: "8px",
             }}
           >
-            <label htmlFor="order" className="text-gray">
+            <label htmlFor="order" className="myAppName-text-gray">
               Ordering
             </label>
             <select
               value={sortOption}
               onChange={handleSortChange}
-              className="select-button"
+              className="myAppName-select-button"
               name="order"
               id="order"
             >

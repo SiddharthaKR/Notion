@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { API_URL } from '../Constants/ApiConstants';
 
-const ApiService = {
+const ApiUtil = {
     fetchData: async () => {
       try {
         const response = await axios.get(`${API_URL}`);
@@ -13,4 +13,4 @@ const ApiService = {
     },
   };
   
-  export default ApiService;
+  export default ApiUtil;
