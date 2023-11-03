@@ -25,6 +25,23 @@ const Home = () => {
   }, []);
 
   useEffect(() => {
+    // Get the saved grouping option from localStorage
+    const savedGroupingOption = localStorage.getItem('displayOption');
+    if (savedGroupingOption) {
+      setDisplayOption(savedGroupingOption);
+    }
+  
+    // Get the saved sorting option from localStorage
+    const savedSortingOption = localStorage.getItem('sortOption');
+    if (savedSortingOption) {
+      setSortOption(savedSortingOption);
+    }
+  
+    // Fetch and display data based on the saved options
+    // You may call your grouping and sorting functions here.
+  }, []);
+  
+  useEffect(() => {
     groupTickets(displayOption);
   }, [displayOption, sortOption, tickets, users]);
 

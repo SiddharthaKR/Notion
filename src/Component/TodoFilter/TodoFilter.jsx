@@ -2,19 +2,28 @@ import React from "react";
 import DownArrowIcon from "../../Shared/Icon/DownArrowIcon";
 import FilterIcon from "../../Shared/Icon/FilterIcon";
 
-const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption, isDropDownSelected,setIsDropDownSelected }) => {
-  
-
+const TodoFilter = ({
+  displayOption,
+  sortOption,
+  setDisplayOption,
+  setSortOption,
+  isDropDownSelected,
+  setIsDropDownSelected,
+}) => {
   const handleDisplayChange = (e) => {
+    // Save the selected grouping option in localStorage
+    localStorage.setItem("displayOption", e.target.value);
     setDisplayOption(e.target.value);
   };
 
   const handleSortChange = (e) => {
+    // Save the selected sorting option in localStorage
+    localStorage.setItem("sortOption", e.target.value);
     setSortOption(e.target.value);
   };
-  const handleDropDown = ()=>{
-    setIsDropDownSelected(!isDropDownSelected)
-  }
+  const handleDropDown = () => {
+    setIsDropDownSelected(!isDropDownSelected);
+  };
 
   return (
     <div style={{ position: "relative" }}>
@@ -38,7 +47,7 @@ const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption
             width: "100%",
             top: "40px",
             background: "#F8F9FB",
-            zIndex:99
+            zIndex: 99,
           }}
         >
           <div
@@ -51,7 +60,13 @@ const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption
             <label htmlFor="group" className="text-gray">
               Grouping
             </label>
-            <select value={displayOption} onChange={handleDisplayChange} className="select-button" name="group" id="group">
+            <select
+              value={displayOption}
+              onChange={handleDisplayChange}
+              className="select-button"
+              name="group"
+              id="group"
+            >
               <option value="status">Status</option>
               <option value="user">User</option>
               <option value="priority">Priority</option>
@@ -68,7 +83,13 @@ const TodoFilter = ({ displayOption, sortOption, setDisplayOption, setSortOption
             <label htmlFor="order" className="text-gray">
               Ordering
             </label>
-            <select value={sortOption} onChange={handleSortChange} className="select-button" name="order" id="order">
+            <select
+              value={sortOption}
+              onChange={handleSortChange}
+              className="select-button"
+              name="order"
+              id="order"
+            >
               <option value="priority">Priority</option>
               <option value="title">Title</option>
             </select>
