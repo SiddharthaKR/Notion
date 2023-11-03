@@ -10,7 +10,7 @@ const Home = () => {
   const [sortOption, setSortOption] = useState("title");
   const [groupedTickets, setGroupedTickets] = useState([]);
   const [isDropDownSelected, setIsDropDownSelected] = useState(false);
-  
+
   useEffect(() => {
     // Fetch tickets from the API when the component mounts.
     ApiService.fetchData()
@@ -26,21 +26,21 @@ const Home = () => {
 
   useEffect(() => {
     // Get the saved grouping option from localStorage
-    const savedGroupingOption = localStorage.getItem('displayOption');
+    const savedGroupingOption = localStorage.getItem("displayOption");
     if (savedGroupingOption) {
       setDisplayOption(savedGroupingOption);
     }
-  
+
     // Get the saved sorting option from localStorage
-    const savedSortingOption = localStorage.getItem('sortOption');
+    const savedSortingOption = localStorage.getItem("sortOption");
     if (savedSortingOption) {
       setSortOption(savedSortingOption);
     }
-  
+
     // Fetch and display data based on the saved options
     // You may call your grouping and sorting functions here.
   }, []);
-  
+
   useEffect(() => {
     groupTickets(displayOption);
   }, [displayOption, sortOption, tickets, users]);
@@ -96,15 +96,27 @@ const Home = () => {
         />
       </div>
       <div onClick={handleOutsideClick} className="gridContainer">
-        {Object.entries(groupedTickets).map(([groupKey, groupTickets]) => (
-          <TodoList
-            key={groupKey}
-            displayOption={displayOption}
-            groupName={groupKey}
-            tickets={groupTickets}
-            users={users}
-          />
-        ))}
+        {displayOption === "priority"
+          ? [...Object.keys(groupedTickets)]
+              .reverse()
+              .map((groupKey) => (
+                <TodoList
+                  key={groupKey}
+                  displayOption={displayOption}
+                  groupName={groupKey}
+                  tickets={groupedTickets[groupKey]}
+                  users={users}
+                />
+              ))
+          : Object.entries(groupedTickets).map(([groupKey, groupTickets]) => (
+              <TodoList
+                key={groupKey}
+                displayOption={displayOption}
+                groupName={groupKey}
+                tickets={groupTickets}
+                users={users}
+              />
+            ))}
       </div>
     </div>
   );

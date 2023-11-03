@@ -2,7 +2,6 @@ import React, { Fragment } from "react";
 import './avatar.css'
 
 const Avatar = ({ name="", imageUrl,available=false }) => {
-  console.log(imageUrl)
   return (
     <Fragment>
       <div className='container'>

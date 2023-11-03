@@ -4,7 +4,6 @@ import LoadMoreIcon from "../../Shared/Icon/LoadMoreIcon";
 import DotIcon from "../../Shared/Icon/DotIcon";
 
 const TodoCard = ({ticket={},displayOption=''}) => {
-  console.log(ticket)
   return (
     <div
       style={{
