@@ -17,7 +17,7 @@ const TodoCard = ({ticket={},displayOption=''}) => {
       }}
     >
       <div style={{ display: "flex", justifyContent: "space-between" }}>
-        <h4 className="myAppName-text-gray">{ticket?.id}</h4>
+        <h4 className="text-gray">{ticket?.id}</h4>
         {displayOption!=='user' && <Avatar available={ticket?.user?.available} name={ticket?.user?.name} imageUrl={ticket?.user?.imageUrl}/>}
       </div>
       <div
@@ -36,12 +36,12 @@ const TodoCard = ({ticket={},displayOption=''}) => {
       </div>
       <div></div>
       <div style={{ display: "flex" }}>
-        <div className="myAppName-outline-button">
+        <div className="outline-button">
           <LoadMoreIcon />
         </div>
-        <div className="myAppName-outline-button" style={{marginLeft:'6px'}}>
+        <div className="outline-button" style={{marginLeft:'6px'}}>
           <DotIcon />
-          <h4 className="myAppName-text-gray">{ticket?.tag[0]}</h4>
+          <h4 className="text-gray">{ticket?.tag[0]}</h4>
         </div>
       </div>
     </div>

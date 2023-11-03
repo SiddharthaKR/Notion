@@ -1,12 +1,12 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Todo from "./Pages/Home/Todo";
+import Home from "./Pages/Home/Home";
 
 function App() {
   return (
     <Router>
       <div className="App">
         <Routes>
-          <Route path="/" element={<Todo />} />
+          <Route path="/" element={<Home />} />
         </Routes>
       </div>
     </Router>

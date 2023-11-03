@@ -47,18 +47,18 @@ const TodoList = ({groupName='',tickets=[],displayOption,users=[]}) => {
   
   return (
     <div style={{maxWidth:'450px',width:'100%',marginBottom:'2rem'}}>
-        <div className='myAppName-flex-row space-between' style={{marginBottom:"2rem"}}>
-          <div className='myAppName-flex-row myAppName-item-gap myAppName-centre'>
+        <div className='flex-row space-between' style={{marginBottom:"2rem"}}>
+          <div className='flex-row item-gap centre'>
           {getIcon()}
            <h4 className='text-primary'>{displayOption==='priority'?mapping[parseInt(groupName)]:groupName}</h4>
            <h4 className='text-primary'>{numberOfTickets}</h4>
           </div>
-          <div className='myAppName-flex-row myAppName-item-gap' style={{alignItems:'center'}}>
+          <div className='flex-row item-gap' style={{alignItems:'center'}}>
             <AdditionIcon />
             <LoadMoreIcon />
           </div>
         </div>
-        <div className='myAppName-flex-col'>
+        <div className='flex-col'>
         {
           tickets.map((ticket)=>{
             return <TodoCard displayOption={displayOption} key={ticket.id} ticket={ticket}/>

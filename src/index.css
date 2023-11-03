@@ -16,42 +16,37 @@ input{
     padding: 0%;
     margin: 0%;
 }
-.myAppName-text-gray {
+.text-gray{
     font-size: 12px;
     color: rgb(111, 111, 111);
     font-weight: 400;
 }
-
-.myAppName-text-primary {
+.text-primary{
     font-size: 14px;
     font-weight: 600;
 }
-
-.myAppName-flex-row {
+.flex-row{
     display: flex;
     flex-direction: row;
 }
-
-.myAppName-flex-col {
+.flex-col{
     display: flex;
     flex-direction: column;
 }
-
-
-.myAppName-item-gap {
+.space-between{
+    justify-content: space-between;
+}
+.item-gap{
     column-gap: 14px;
 }
-
-.myAppName-centre {
+.centre{
     justify-content: center;
     align-items: center;
 }
-
-.myAppName-cursor-pointer {
+.cursor-pointer{
     cursor: pointer;
 }
-
-.myAppName-outline-button {
+.outline-button{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -63,8 +58,7 @@ input{
     padding: 6px;
     box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
-
-.myAppName-select-button {
+.select-button{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -76,8 +70,7 @@ input{
     border-color: rgba(223, 225, 228);
     padding: 6px;
 }
-
-.myAppName-gridContainer {
+.gridContainer{
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     padding: 2rem;
@@ -86,8 +79,8 @@ input{
 
 /* Add a media query to adjust the grid layout on small screens */
 @media screen and (max-width: 768px) {
-    .myAppName-myAppName-gridContainer {
+    .gridContainer {
       grid-template-columns: repeat(1, 1fr); /* Change to 2 columns on small screens */
       padding: 1rem; /* Adjust padding as needed */
     }
-}
+  }
